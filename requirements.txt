@@ -23,7 +23,7 @@ contourpy
 crispy-bootstrap5
 cryptography
 cssselect
-cupshelpers
+# cupshelpers
 cycler
 dbus-python
 decorator
