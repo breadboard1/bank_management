@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -89,15 +90,21 @@ WSGI_APPLICATION = 'bank_management.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
+    'default': dj_database_url.config(
+        default='postgresql://banking_app_si1d_user:98TWkB9itStwd8Uq4XpIM7VV6wvEPlnV@dpg-cs9luci3esus739hn8gg-a.oregon-postgres.render.com/banking_app_si1d',
+    )
 }
 
 
