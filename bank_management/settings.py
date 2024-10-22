@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
 import dj_database_url
 import environ
 env = environ.Env()
@@ -31,9 +30,9 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://my-bank-lyzw.onrender.com', 'https://*.127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['https://my-bank-lyzw.onrender.com', 'https://*.127.0.0.1']
 
 
 # Application definition
@@ -85,12 +84,12 @@ WSGI_APPLICATION = 'bank_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -102,12 +101,6 @@ WSGI_APPLICATION = 'bank_management.wsgi.application'
 #         'PORT': env("DB_PORT"),
 #     }
 # }
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://banking_app_si1d_user:98TWkB9itStwd8Uq4XpIM7VV6wvEPlnV@dpg-cs9luci3esus739hn8gg-a.oregon-postgres.render.com/banking_app_si1d',
-    )
-}
 
 
 # Password validation
@@ -160,4 +153,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-
